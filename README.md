@@ -1,7 +1,3 @@
-### Zaktualizowane README
-
----
-
 # Analiza Danych
 
 ## Opis projektu
@@ -132,6 +128,37 @@ python -m unittest tests/test_main.py
       5. Bar Plot (Wykres słupkowy)
       6. Heatmap (Mapa cieplna)
 
+## Wyjaśnienie zastosowanych metod
+
+### a. Dlaczego zastosowane w programie metody są dostosowane do wybranego typu danych i prezentowanego zagadnienia analitycznego?
+
+Metody zastosowane w programie zostały dobrane tak, aby umożliwić kompleksową analizę danych liczbowych oraz kategorycznych. Zostały one wybrane ze względu na ich powszechne zastosowanie w analizie danych i łatwość interpretacji wyników. Przykładowe metody i ich zastosowanie:
+
+- **Sortowanie**: Umożliwia uporządkowanie danych według wartości wybranej kolumny, co jest przydatne przy analizie porównawczej.
+- **Filtrowanie**: Umożliwia wyselekcjonowanie podzbioru danych spełniających określone kryteria, co jest użyteczne przy analizie skupionej na określonych warunkach.
+- **Agregacja**: Umożliwia obliczenie wartości sumarycznych, średnich i innych statystyk dla wybranych kolumn, co jest przydatne przy podsumowywaniu danych.
+- **Korelacja**: Umożliwia zbadanie zależności między dwiema zmiennymi, co jest ważne przy analizie współzależności.
+- **Usuwanie duplikatów**: Zapewnia, że analiza jest przeprowadzana na unikalnych rekordach, co zwiększa wiarygodność wyników.
+- **Statystyki opisowe**: Dostarczają podstawowych informacji o rozkładzie danych, takich jak średnia, mediana, odchylenie standardowe.
+- **Normalizacja**: Przekształca dane do wspólnej skali, co jest przydatne przy porównywaniu różnych zestawów danych.
+- **Zaawansowane filtrowanie**: Pozwala na bardziej skomplikowane zapytania filtrujące, co umożliwia dokładniejszą analizę.
+- **Wizualizacja danych**: Wykresy takie jak histogramy, wykresy rozrzutu, pudełkowe, liniowe, słupkowe i mapy cieplne umożliwiają łatwe zrozumienie danych i wyciągnięcie wniosków.
+
+### b. Wyjaśnienie zastosowanych rozwiązań programistycznych
+
+Projekt został zorganizowany w sposób modułowy, z wyraźnym podziałem na różne etapy przetwarzania danych:
+
+- **Struktura i relacje klas**:
+
+  - `DataLoader`: Klasa odpowiedzialna za wczytywanie danych z plików CSV. Oddziela proces wczytywania danych od ich analizy i wizualizacji, co zwiększa modularność kodu.
+  - `DataAnalysis`: Klasa zawierająca metody analizy danych. Metody te operują na DataFrame'ach Pandas, co umożliwia wydajną manipulację i analizę danych.
+  - `DataVisualization`: Klasa zawierająca metody do wizualizacji danych przy użyciu biblioteki Matplotlib i Seaborn. Dzięki temu wizualizacje są klarowne i profesjonalnie wyglądające.
+
+- **Wzorce projektowe**:
+  - **Modularność**: Projekt został podzielony na moduły (wczytywanie danych, analiza, wizualizacja), co ułatwia rozwój, testowanie i konserwację kodu.
+  - **Separacja logiki**: Logika wczytywania, analizy i wizualizacji danych jest oddzielona, co pozwala na łatwe modyfikowanie i rozbudowę każdej części projektu bez wpływu na pozostałe moduły.
+  - **Testowanie**: Przygotowano testy jednostkowe dla każdej klasy i jej metod, co zapewnia, że poszczególne części projektu działają poprawnie i zgodnie z oczekiwaniami.
+
 ## Przykładowe dane
 
 W katalogu `data` powinien znajdować się plik ZIP zawierający dane w formacie CSV. Przykładowy plik ZIP może wyglądać następująco:
@@ -141,7 +168,9 @@ data/
 |-- test_data.zip
 ```
 
-Plik `test_data.csv` wewnątrz archiwum ZIP może zawierać następujące dane:
+Plik `test_data.csv` wewnątrz
+
+archiwum ZIP może zawierać następujące dane:
 
 ```
 Name,Position,Age,Club,Height,Foot,Caps,Goals,MarketValue,Country
