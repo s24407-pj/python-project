@@ -1,3 +1,7 @@
+### Zaktualizowane README
+
+---
+
 # Analiza Danych
 
 ## Opis projektu
@@ -11,14 +15,22 @@ Ten projekt służy do wczytywania, analizy i wizualizacji danych z plików CSV 
 ## Wymagania
 
 - Python 3.7 lub nowszy
-- Pandas
-- Matplotlib
-- Unittest
 
-Możesz zainstalować wymagane pakiety, uruchamiając:
+### Instalacja zależności
+
+W projekcie znajduje się plik `requirements.txt`, który zawiera wszystkie wymagane pakiety. Możesz zainstalować te pakiety za pomocą poniższego polecenia:
 
 ```bash
-pip install pandas matplotlib
+pip install -r requirements.txt
+```
+
+Zawartość pliku `requirements.txt`:
+
+```
+pandas
+numpy
+matplotlib
+seaborn
 ```
 
 ## Struktura katalogów
@@ -36,6 +48,7 @@ python-project/
 |   |-- test_main.py
 |-- data/
 |   |-- test_data.zip (lub inne pliki ZIP zawierające dane CSV)
+|-- requirements.txt
 ```
 
 ## Uruchamianie programu
