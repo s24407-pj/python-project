@@ -29,24 +29,6 @@ matplotlib
 seaborn
 ```
 
-## Struktura katalogów
-
-Struktura katalogów projektu powinna wyglądać następująco:
-
-```
-python-project/
-|-- src/
-|   |-- data_loader.py
-|   |-- data_analysis.py
-|   |-- data_visualization.py
-|   |-- main.py
-|-- tests/
-|   |-- test_main.py
-|-- data/
-|   |-- test_data.zip (lub inne pliki ZIP zawierające dane CSV)
-|-- requirements.txt
-```
-
 ## Uruchamianie programu
 
 Aby uruchomić główny program, użyj poniższego polecenia:
