@@ -1,5 +1,3 @@
-import pandas as pd
-
 class DataAnalysis:
     def __init__(self, data):
         self.data = data

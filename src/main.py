@@ -1,37 +1,15 @@
 import os
-import zipfile
 import pandas as pd
 from data_loader import DataLoader
 from data_analysis import DataAnalysis
 from data_visualization import DataVisualization
 
-def list_zip_files_in_directory(directory):
-    try:
-        files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f)) and f.endswith('.zip')]
-        return files
-    except Exception as e:
-        print(f"Nie udało się uzyskać listy plików: {e}")
-        return []
 
-def extract_csv_from_zip(zip_path, extract_to='extracted'):
-    try:
-        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-            zip_ref.extractall(extract_to)
-            csv_file_name = os.path.splitext(os.path.basename(zip_path))[0] + '.csv'
-            csv_path = os.path.join(extract_to, csv_file_name)
-            if os.path.isfile(csv_path):
-                return csv_path
-            else:
-                print(f"Plik {csv_file_name} nie został znaleziony w archiwum.")
-                return None
-    except Exception as e:
-        print(f"Nie udało się rozpakować pliku: {e}")
-        return None
 
 def main():
     try:
         data_directory = 'data'
-        available_files = list_zip_files_in_directory(data_directory)
+        available_files = data_loader.list_zip_files_in_directory(data_directory)
         
         if not available_files:
             print("Brak dostępnych plików ZIP w katalogu 'data'.")
@@ -49,7 +27,7 @@ def main():
         
         zip_path = os.path.join(data_directory, available_files[file_choice])
         
-        csv_path = extract_csv_from_zip(zip_path)
+        csv_path = data_loader.extract_csv_from_zip(zip_path)
         
         if csv_path is None:
             print("Błąd podczas rozpakowywania i wczytywania pliku CSV.")
@@ -67,7 +45,7 @@ def main():
         data_analysis = DataAnalysis(data)
         data_analysis.explore_data()
 
-        columns = sorted(list(data.columns))  # Sortowanie kolumn
+        columns = sorted(list(data.columns))
         data_visualization = DataVisualization(data)
         
         while True:
@@ -92,7 +70,7 @@ def main():
             if analysis_choice == 0:
                 break
 
-            # Wyświetlanie dostępnych kolumn
+            
             print("Dostępne kolumny:")
             for idx, column in enumerate(columns):
                 print(f"{idx + 1}. {column}")
